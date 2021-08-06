@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGIS BMKG Gempa Terkini</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <main id="main">
+        <header>
+            <div class="navbar">
+                <a id="hamburger" class="header-menu" href="#">☰</a>
+                <h1 class="header-name">DATA GEMPA INDONESIA</h1>
+            </div>
+        </header>
+        <div id="map"></div>
+    </main>
+    <aside>
+        <nav id="drawer">
+            <h2 class="drawer-name">BPBD</h2>
+            <hr>
+            <h3 class="drawer-subtitle">Dashboard</h3>
+            <hr>
+            <h4 class="drawer-title">Bencana</h4>
+            <ul>
+                <li class="drawer-subtitle">
+                    <label class="container">
+                        <a href="#" for="gempaBumi">Gempa Bumi</a>
+                        <input type="checkbox" id="gempaBumi" name="gempaBumi" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                </li>
+            </ul>
+            <hr>
+        </nav>
+    </aside>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
