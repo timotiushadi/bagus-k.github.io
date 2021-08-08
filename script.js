@@ -24,7 +24,7 @@ let group = L.featureGroup();
 
 async function MenampilkanMarkerGempa() {
     const gempa = await DataGempa.listGempa();
-    let iconUrl = 'assets/image/icons/gempa.png';
+    let iconUrl = 'assets/images/icons/gempa.png';
 
     gempa.forEach((marker) => {
         let getLongLat = marker['Coordinates'];
