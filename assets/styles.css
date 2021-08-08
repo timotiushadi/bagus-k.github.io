@@ -14,7 +14,7 @@ html, body{
 }
 
 #main.open {
-    transform: translate(17.5%, 0);
+    transform: translate(0,0);
 }
 
 body {
