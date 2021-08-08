@@ -21,7 +21,9 @@ map.doubleClickZoom.disable();
 
 let markers = [];
 let marker;
-let group = L.layerGroup();
+let group = L.featureGroup();
+let iconIndex = [];
+let i = 0;
 
 async function MenampilkanMarkerGempa() {
     const gempa = await DataGempa.listGempa();
@@ -64,10 +66,6 @@ async function MenampilkanMarkerGempa() {
 
 MenampilkanMarkerGempa();
 map.addLayer(group);
-group.on("click", function(event) {
-    let clickedMarker = event.layer;
-    console.log(clickedMarker);
-});
 
 //Hamburger Button / Side Bar
 const hamburgerButtonElement = document.querySelector("#hamburger");
@@ -75,7 +73,7 @@ const drawerElement = document.querySelector("#drawer");
 const main = document.querySelector("#main");
 
 hamburgerButtonElement.addEventListener("click", event => {
- drawerElement.classList.toggle("open");
+//  drawerElement.classList.toggle("open");
  main.classList.toggle("open");
  event.stopPropagation();
 });
@@ -95,5 +93,30 @@ checkbox.addEventListener('change', function() {
   }
 });
 
-//popup detail
-const icon = document.getElementsByClassName(".leaflet-marker-icon");
+group.on("click", async function(event) {
+    const gempa = await DataGempa.listGempa();
+    let clickedMarker = event.latlng;
+    let iconCoordinate = clickedMarker.lat +',' + clickedMarker.lng;
+
+    gempa.forEach((marker) => {
+        let getLongLat = marker['Coordinates'];
+        if (iconCoordinate == getLongLat) {
+            const sideBar = document.getElementById("drawer");
+            if (!main.classList.contains("open")) {
+                main.classList.toggle("open");
+            }
+            sideBar.innerHTML = `
+                <p><strong>Tanggal:</strong> ${marker.Tanggal}</p>
+                <p><strong>Jam:</strong>  ${marker.Jam}</p>
+                <p><strong>DateTime:</strong> ${marker.DateTime}</p>
+                <p><strong>Coordinates:</strong> ${marker.Coordinates}</p>
+                <p><strong>Lintang:</strong> ${marker.Lintang}</p>
+                <p><strong>Bujur:</strong> ${marker.Bujur}</p>
+                <p><strong>Magnitude:</strong> ${marker.Magnitude}</p>
+                <p><strong>Kedalaman:</strong> ${marker.Kedalaman}</p>
+                <p><strong>Wilayah:</strong> ${marker.Wilayah}</p>
+                <p><strong>Potensi:</strong> ${marker.Potensi}</p>
+            `;
+        }
+    });
+});
