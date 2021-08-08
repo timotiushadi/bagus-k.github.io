@@ -16,7 +16,6 @@ class DataGempa {
         return responseJson.Infogempa.gempa;
     }
 }
-
 //Layer / Marker
 
 let markers = [];
@@ -25,8 +24,7 @@ let group = L.featureGroup();
 
 async function MenampilkanMarkerGempa() {
     const gempa = await DataGempa.listGempa();
-
-    let iconUrl = 'assets/images/icons/gempa.png';
+    let iconUrl = 'assets/image/icons/gempa.png';
 
     gempa.forEach((marker) => {
         let getLongLat = marker['Coordinates'];
