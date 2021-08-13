@@ -734,7 +734,7 @@ pre code {
   -webkit-flex: 0 0 66.666667%;
   -ms-flex: 0 0 66.666667%;
   flex: 0 0 66.666667%;
-  max-width: 66.666667%;
+  max-width: 100%;
 }
 
 .col-9 {
@@ -3814,7 +3814,7 @@ input[type="button"].btn-block {
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  width: 100%;
+  width: auto;
 }
 
 .input-group > .form-control,
